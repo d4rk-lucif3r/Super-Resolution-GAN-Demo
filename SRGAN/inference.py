@@ -48,6 +48,7 @@ def build_model(model_arch_name: str, device: torch.device) -> nn.Module:
 
 
 def main(args):
+    image = cv2.imread(args.inputs_path)
     device = choice_device(args.device_type)
 
     # Initialize the model
@@ -61,7 +62,7 @@ def main(args):
     # Start the verification mode of the model.
     sr_model.eval()
 
-    lr_tensor = imgproc.preprocess_one_image(args.inputs_path, device)
+    lr_tensor = imgproc.preprocess_one_image(image, device)
 
     # Use the model to generate super-resolved images
     with torch.no_grad():
