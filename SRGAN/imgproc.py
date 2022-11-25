@@ -31,7 +31,7 @@ __all__ = [
 
 
 # Code reference `https://github.com/xinntao/BasicSR/blob/master/basicsr/utils/matlab_functions.py`
-def _cubic(x: Any) -> Any:
+def _cubic(x: Any):
     """Implementation of `cubic` function in Matlab under Python language.
 
     Args:
@@ -54,7 +54,7 @@ def _calculate_weights_indices(in_length: int,
                                out_length: int,
                                scale: float,
                                kernel_width: int,
-                               antialiasing: bool) -> [np.ndarray, np.ndarray, int, int]:
+                               antialiasing: bool):
     """Implementation of `calculate_weights_indices` function in Matlab under Python language.
 
     Args:
@@ -127,7 +127,7 @@ def _calculate_weights_indices(in_length: int,
     return weights, indices, int(sym_len_s), int(sym_len_e)
 
 
-def image_to_tensor(image: ndarray, range_norm: bool, half: bool) -> Tensor:
+def image_to_tensor(image: ndarray, range_norm: bool, half: bool):
     """Convert the image data type to the Tensor (NCWH) data type supported by PyTorch
 
     Args:
@@ -157,7 +157,7 @@ def image_to_tensor(image: ndarray, range_norm: bool, half: bool) -> Tensor:
     return tensor
 
 
-def tensor_to_image(tensor: Tensor, range_norm: bool, half: bool) -> Any:
+def tensor_to_image(tensor: Tensor, range_norm: bool, half: bool):
     """Convert the Tensor(NCWH) data type supported by PyTorch to the np.ndarray(WHC) image data type
 
     Args:
@@ -183,7 +183,7 @@ def tensor_to_image(tensor: Tensor, range_norm: bool, half: bool) -> Any:
     return image
 
 
-def preprocess_one_image(image: np.ndarray, device: torch.device) -> Tensor:
+def preprocess_one_image(image: np.ndarray, device: torch.device):
     image = image.astype(np.float32) / 255.0
 
     # BGR to RGB
@@ -199,7 +199,7 @@ def preprocess_one_image(image: np.ndarray, device: torch.device) -> Tensor:
 
 
 # Code reference `https://github.com/xinntao/BasicSR/blob/master/basicsr/utils/matlab_functions.py`
-def image_resize(image: Any, scale_factor: float, antialiasing: bool = True) -> Any:
+def image_resize(image: Any, scale_factor: float, antialiasing: bool = True):
     """Implementation of `imresize` function in Matlab under Python language.
 
     Args:
@@ -288,7 +288,7 @@ def image_resize(image: Any, scale_factor: float, antialiasing: bool = True) -> 
     return out_2
 
 
-def expand_y(image: np.ndarray) -> np.ndarray:
+def expand_y(image: np.ndarray):
     """Convert BGR channel to YCbCr format,
     and expand Y channel data in YCbCr, from HW to HWC
 
@@ -314,7 +314,7 @@ def expand_y(image: np.ndarray) -> np.ndarray:
     return y_image
 
 
-def rgb_to_ycbcr(image: np.ndarray, only_use_y_channel: bool) -> np.ndarray:
+def rgb_to_ycbcr(image: np.ndarray, only_use_y_channel: bool):
     """Implementation of rgb2ycbcr function in Matlab under Python language
 
     Args:
@@ -337,7 +337,7 @@ def rgb_to_ycbcr(image: np.ndarray, only_use_y_channel: bool) -> np.ndarray:
     return image
 
 
-def bgr_to_ycbcr(image: np.ndarray, only_use_y_channel: bool) -> np.ndarray:
+def bgr_to_ycbcr(image: np.ndarray, only_use_y_channel: bool):
     """Implementation of bgr2ycbcr function in Matlab under Python language.
 
     Args:
@@ -360,7 +360,7 @@ def bgr_to_ycbcr(image: np.ndarray, only_use_y_channel: bool) -> np.ndarray:
     return image
 
 
-def ycbcr_to_rgb(image: np.ndarray) -> np.ndarray:
+def ycbcr_to_rgb(image: np.ndarray):
     """Implementation of ycbcr2rgb function in Matlab under Python language.
 
     Args:
@@ -383,7 +383,7 @@ def ycbcr_to_rgb(image: np.ndarray) -> np.ndarray:
     return image
 
 
-def ycbcr_to_bgr(image: np.ndarray) -> np.ndarray:
+def ycbcr_to_bgr(image: np.ndarray):
     """Implementation of ycbcr2bgr function in Matlab under Python language.
 
     Args:
@@ -406,7 +406,7 @@ def ycbcr_to_bgr(image: np.ndarray) -> np.ndarray:
     return image
 
 
-def rgb_to_ycbcr_torch(tensor: Tensor, only_use_y_channel: bool) -> Tensor:
+def rgb_to_ycbcr_torch(tensor: Tensor, only_use_y_channel: bool):
     """Implementation of rgb2ycbcr function in Matlab under PyTorch
 
     References from：`https://en.wikipedia.org/wiki/YCbCr#ITU-R_BT.601_conversion`
@@ -434,7 +434,7 @@ def rgb_to_ycbcr_torch(tensor: Tensor, only_use_y_channel: bool) -> Tensor:
     return tensor
 
 
-def bgr_to_ycbcr_torch(tensor: Tensor, only_use_y_channel: bool) -> Tensor:
+def bgr_to_ycbcr_torch(tensor: Tensor, only_use_y_channel: bool):
     """Implementation of bgr2ycbcr function in Matlab under PyTorch
 
     References from：`https://en.wikipedia.org/wiki/YCbCr#ITU-R_BT.601_conversion`
@@ -462,7 +462,7 @@ def bgr_to_ycbcr_torch(tensor: Tensor, only_use_y_channel: bool) -> Tensor:
     return tensor
 
 
-def center_crop(image: np.ndarray, image_size: int) -> np.ndarray:
+def center_crop(image: np.ndarray, image_size: int):
     """Crop small image patches from one image center area.
 
     Args:
@@ -485,7 +485,7 @@ def center_crop(image: np.ndarray, image_size: int) -> np.ndarray:
     return patch_image
 
 
-def random_crop(image: np.ndarray, image_size: int) -> np.ndarray:
+def random_crop(image: np.ndarray, image_size: int):
     """Crop small image patches from one image.
 
     Args:
@@ -511,7 +511,7 @@ def random_crop(image: np.ndarray, image_size: int) -> np.ndarray:
 def random_rotate(image,
                   angles: list,
                   center: tuple[int, int] = None,
-                  scale_factor: float = 1.0) -> np.ndarray:
+                  scale_factor: float = 1.0):
     """Rotate an image by a random angle
 
     Args:
@@ -537,7 +537,7 @@ def random_rotate(image,
     return rotated_image
 
 
-def random_horizontally_flip(image: np.ndarray, p: float = 0.5) -> np.ndarray:
+def random_horizontally_flip(image: np.ndarray, p: float = 0.5):
     """Flip the image upside down randomly
 
     Args:
@@ -556,7 +556,7 @@ def random_horizontally_flip(image: np.ndarray, p: float = 0.5) -> np.ndarray:
     return horizontally_flip_image
 
 
-def random_vertically_flip(image: np.ndarray, p: float = 0.5) -> np.ndarray:
+def random_vertically_flip(image: np.ndarray, p: float = 0.5):
     """Flip an image horizontally randomly
 
     Args:
