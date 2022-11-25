@@ -17,7 +17,7 @@ with demo:
             with gr.Row():
                 rad1 = gr.components.Radio(
                     ['Image 1', 'Image 2'], label='Select Low Resolution Image and wait till it appears!')  # Radio button to select the image
-                img1 = gr.Image(label="Image 1", shape=(300, 300))
+                img1 = gr.Image(label="Low Resolution Image Example", shape=(300, 300))
             submit1 = gr.Button('Submit')
         with gr.TabItem("Do it yourself!"):  # If the user wants to add their own image
             with gr.Row():
