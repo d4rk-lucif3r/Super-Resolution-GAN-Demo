@@ -43,7 +43,7 @@ with demo:
         gr.Markdown(
             "### Made with ❤️ by Arsh using TrueFoundry's Gradio Deployment")
         gr.Markdown(
-            "### [Github Repo]()")
+            "### [Github Repo](https://github.com/d4rk-lucif3r/Super-Resolution-GAN-Demo)")
         gr.Markdown(
             '### [Blog]()')
 
